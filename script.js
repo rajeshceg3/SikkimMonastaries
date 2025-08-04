@@ -17,12 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }).addTo(map);
 
     // 2. Add a Custom Tile Layer
-    // Using a minimalist Stamen Toner Lite tile layer for a clean, unobtrusive look.
-    L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg', {
-        attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        minZoom: 8,
-        maxZoom: 16
-    }).addTo(map);
+    // Using Esri's satellite imagery for a more realistic view.
+    L.esri.basemapLayer('Imagery').addTo(map);
 
     // 3. Monastery Data
     const monasteries = [
