@@ -13,9 +13,19 @@
         <p>A Journey to 15 Monasteries</p>
     </header>
 
-    <div id="map"></div>
+    <div id="main-container">
+        <div id="list-panel">
+            <div id="list-header">
+                <h2>Monasteries</h2>
+            </div>
+            <ul id="monastery-list">
+                <!-- List items will be dynamically inserted here -->
+            </ul>
+        </div>
+        <div id="map"></div>
+    </div>
 
-    <div id="side-panel" class="panel-hidden">
+    <div id="detail-panel" class="panel-hidden">
         <button id="close-panel">&times;</button>
         <div id="panel-content">
             <img id="panel-image" src="" alt="Monastery Image">
@@ -27,5 +37,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/esri-leaflet@3.0.17/dist/esri-leaflet.js"></script>
     <script src="script.js"></script>
+    <script src="list.js"></script>
 </body>
 </html>
