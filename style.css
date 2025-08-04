@@ -5,15 +5,19 @@
    - Typography: Clean, Legible, and Modern
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
     --bg-color: #F0F2F5;
     --text-color: #333;
+    --text-light: #666;
     --panel-bg: #FFFFFF;
     --accent-color: #FF5722;
-    --shadow-color: rgba(0, 0, 0, 0.1);
+    --accent-color-dark: #E64A19;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --border-color: #E0E0E0;
     --transition-speed: 0.4s;
+    --list-width: 320px;
 }
 
 * {
@@ -26,58 +30,112 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    overflow: hidden; /* Prevent scrollbars from appearing */
+    overflow: hidden;
+    display: flex;
 }
 
 header {
     position: fixed;
     top: 20px;
-    left: 50%;
+    left: calc(var(--list-width) + (100vw - var(--list-width)) / 2);
     transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 15px 30px;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 12px 24px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px var(--shadow-color);
-    z-index: 1000;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    z-index: 1002;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: left var(--transition-speed) ease-in-out;
 }
 
 header h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--text-color);
 }
 
 header p {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: #666;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+#main-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+#list-panel {
+    width: var(--list-width);
+    height: 100vh;
+    background-color: var(--panel-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    z-index: 1001;
+}
+
+#list-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#list-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#monastery-list {
+    list-style: none;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+#monastery-list li {
+    padding: 15px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+}
+
+#monastery-list li:hover {
+    background-color: #f9f9f9;
+}
+
+#monastery-list li.active {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+#monastery-list .list-item-name {
+    font-weight: 500;
 }
 
 #map {
-    width: 100vw;
+    flex-grow: 1;
     height: 100vh;
     z-index: 1;
 }
 
-#side-panel {
+#detail-panel {
     position: fixed;
     top: 0;
     right: 0;
     width: 380px;
     height: 100vh;
     background-color: var(--panel-bg);
-    box-shadow: -5px 0 25px var(--shadow-color);
-    z-index: 1001;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+    z-index: 1003;
     transform: translateX(100%);
     transition: transform var(--transition-speed) ease-in-out;
     display: flex;
     flex-direction: column;
 }
 
-#side-panel.panel-visible {
+#detail-panel.panel-visible {
     transform: translateX(0);
 }
 
@@ -125,26 +183,86 @@ header p {
 
 /* Custom Leaflet Marker */
 .custom-marker {
-    background-color: var(--panel-bg);
+    background-color: rgba(255, 255, 255, 0.8);
     border: 2px solid var(--accent-color);
-    width: 12px;
-    height: 12px;
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent-color);
-    transition: transform 0.2s ease-in-out;
+    width: 20px;
+    height: 20px;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.custom-marker:hover {
+.marker-pin {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+
+.custom-marker.hover, .custom-marker:hover {
+    transform: scale(1.4);
+    border-color: var(--accent-color-dark);
+}
+
+.custom-marker.hover .marker-pin, .custom-marker:hover .marker-pin {
+    background-color: var(--accent-color-dark);
+}
+
+.custom-marker.active {
     transform: scale(1.5);
+    background-color: var(--accent-color);
+    border: 3px solid white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.custom-marker.active .marker-pin {
+    background-color: white;
 }
 
 /* Media Queries for smaller screens */
 @media (max-width: 768px) {
-    #side-panel {
+    #list-panel {
+        position: fixed;
+        width: 100%;
+        height: 50vh;
+        bottom: 0;
+        transform: translateY(calc(100% - 50px)); /* Show a handle */
+        transition: transform 0.3s ease-in-out;
+        border-top: 1px solid var(--border-color);
+        box-shadow: 0 -5px 20px var(--shadow-color);
+    }
+
+    #list-panel:focus-within, #list-panel:hover {
+        transform: translateY(0);
+    }
+
+    #list-header {
+        text-align: center;
+        padding: 15px;
+        cursor: pointer;
+    }
+
+    #list-header h2::after {
+        content: ' (Tap to expand)';
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: var(--text-light);
+    }
+
+    #map {
         width: 100%;
     }
 
     header {
+        left: 50%;
         width: 90%;
+        top: 10px;
+    }
+
+    #detail-panel {
+        width: 100%;
     }
 }
