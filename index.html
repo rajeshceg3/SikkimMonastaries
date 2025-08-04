@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikkim's Sacred Peaks: A Journey to 15 Monasteries</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sikkim's Sacred Peaks</h1>
+        <p>A Journey to 15 Monasteries</p>
+    </header>
+
+    <div id="map"></div>
+
+    <div id="side-panel" class="panel-hidden">
+        <button id="close-panel">&times;</button>
+        <div id="panel-content">
+            <img id="panel-image" src="" alt="Monastery Image">
+            <h2 id="panel-title"></h2>
+            <p id="panel-description"></p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+</html>
