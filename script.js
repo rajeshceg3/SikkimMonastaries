@@ -24,8 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }).addTo(mapContext.map);
 
     // 2. Add a Custom Tile Layer
-    // Using Esri's satellite imagery for a more realistic view.
-    L.esri.basemapLayer('Imagery').addTo(mapContext.map);
+    // Using Stamen Watercolor from Stadia Maps
+    L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg?api_key=c8301630-e7df-4a9e-84d5-bf5e7453c864', {
+        maxZoom: 16,
+        attribution: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a>, &copy; <a href="https://stamen.com/" target="_blank">Stamen Design</a>, &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors'
+    }).addTo(mapContext.map);
 
     // 3. Get DOM Elements for Interaction
     const detailPanel = document.getElementById('detail-panel');
