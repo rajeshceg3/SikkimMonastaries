@@ -30,48 +30,43 @@ document.addEventListener('DOMContentLoaded', () => {
         attribution: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a>, &copy; <a href="https://stamen.com/" target="_blank">Stamen Design</a>, &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors'
     }).addTo(mapContext.map);
 
-    // 3. Get DOM Elements for Interaction
+    // 3. Get DOM Elements for New Interaction
+    const mainContainer = document.getElementById('main-container');
     const detailPanel = document.getElementById('detail-panel');
     const closePanelButton = document.getElementById('close-panel');
-    const panelImage = document.getElementById('panel-image');
+    const detailBackground = document.getElementById('detail-view-background');
     const panelTitle = document.getElementById('panel-title');
     const panelDescription = document.getElementById('panel-description');
 
-    // 4. Function to update and show the panel
-    const updatePanel = (monastery) => {
-        panelImage.src = monastery.image;
-        panelImage.alt = monastery.name;
-        panelTitle.textContent = monastery.name;
-        panelDescription.textContent = monastery.description;
-        detailPanel.classList.add('panel-visible');
-    };
-
-    // 5. Create Custom Markers and Add Interaction
+    // 4. Create Custom Markers and Add Interaction
     monasteries.forEach((monastery, index) => {
         const customIcon = L.divIcon({
             className: 'custom-marker',
-            html: `<div class="marker-pin"></div>`, // Inner pin for better styling
+            html: `<div class="marker-pin"></div>`,
             iconSize: [20, 20],
             iconAnchor: [10, 10]
         });
 
         const marker = L.marker([monastery.lat, monastery.lng], { icon: customIcon }).addTo(mapContext.map);
-        marker.dataset.index = index; // Store the index on the marker
+        marker.dataset.index = index;
         mapContext.markers.push(marker);
 
-        marker.on('click', () => {
+        marker.on('click', (e) => {
+            // Stop propagation to prevent map click from closing the panel immediately
+            L.DomEvent.stopPropagation(e);
             selectMonastery(index);
         });
     });
 
-    // 6. Close Panel Logic
+    // 5. Close Panel Logic
     const closePanel = () => {
-        detailPanel.classList.remove('panel-visible');
+        detailPanel.classList.remove('detail-view-visible');
+        mainContainer.classList.remove('detail-view-active');
+
         if (mapContext.activeMarker) {
             mapContext.activeMarker.classList.remove('active');
             mapContext.activeMarker = null;
         }
-        // Also remove active state from list
         const activeListItem = document.querySelector('#monastery-list li.active');
         if (activeListItem) {
             activeListItem.classList.remove('active');
@@ -79,42 +74,63 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     closePanelButton.addEventListener('click', closePanel);
-    mapContext.map.on('click', closePanel); // Close panel when clicking on the map
+    // Note: We'll handle map clicks within the selectMonastery function to avoid immediate closing.
 });
 
-// 7. Function to select a monastery (can be called from list.js)
+// 6. Function to select a monastery (can be called from list.js or marker click)
 function selectMonastery(index) {
     const monastery = monasteries[index];
-    const marker = mapContext.markers[index];
+    const marker = mapContext.markers[index].getElement();
     const listItem = document.querySelector(`#monastery-list li[data-index="${index}"]`);
 
-    // Center map
-    mapContext.map.flyTo([monastery.lat, monastery.lng], 11, {
-        animate: true,
-        duration: 1.5
-    });
-
-    // Update panel
-    const panelImage = document.getElementById('panel-image');
-    const panelTitle = document.getElementById('panel-title');
-    const panelDescription = document.getElementById('panel-description');
-    panelImage.src = monastery.image;
-    panelImage.alt = monastery.name;
+    // --- Update Content ---
+    detailBackground.style.backgroundImage = `url(${monastery.image})`;
     panelTitle.textContent = monastery.name;
     panelDescription.textContent = monastery.description;
-    document.getElementById('detail-panel').classList.add('panel-visible');
 
-    // Update active marker
+    // --- Show Panel and Blur Background ---
+    mainContainer.classList.add('detail-view-active');
+    detailPanel.classList.add('detail-view-visible');
+
+    // --- Update Active States ---
     if (mapContext.activeMarker) {
         mapContext.activeMarker.classList.remove('active');
     }
-    marker.getElement().classList.add('active');
-    mapContext.activeMarker = marker.getElement();
+    marker.classList.add('active');
+    mapContext.activeMarker = marker;
 
-    // Update active list item
     const activeListItem = document.querySelector('#monastery-list li.active');
     if (activeListItem) {
         activeListItem.classList.remove('active');
     }
     listItem.classList.add('active');
+
+    // --- Fly to Location ---
+    mapContext.map.flyTo([monastery.lat, monastery.lng], 12, {
+        animate: true,
+        duration: 1.5
+    });
+
+    // --- Add a one-time event listener to the map to close the panel ---
+    // This is more robust than a generic map click listener.
+    const mapClickListener = () => {
+        const closePanel = () => {
+            detailPanel.classList.remove('detail-view-visible');
+            mainContainer.classList.remove('detail-view-active');
+            if (mapContext.activeMarker) {
+                mapContext.activeMarker.classList.remove('active');
+                mapContext.activeMarker = null;
+            }
+            const activeListItem = document.querySelector('#monastery-list li.active');
+            if (activeListItem) {
+                activeListItem.classList.remove('active');
+            }
+            mapContext.map.off('click', mapClickListener);
+        };
+        closePanel();
+    };
+    // Use a timeout to prevent the same click that opened the panel from closing it
+    setTimeout(() => {
+        mapContext.map.once('click', mapClickListener);
+    }, 100);
 }
