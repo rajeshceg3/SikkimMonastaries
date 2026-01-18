@@ -255,6 +255,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. Close Panel Logic
     closePanelButton.addEventListener('click', closeDetailPanel);
+
+    // 6. Tactile 3D Tilt Effect
+    const detailPanel = document.getElementById('detail-panel');
+    const detailContent = document.getElementById('detail-content');
+
+    detailPanel.addEventListener('mousemove', (e) => {
+        if (!detailPanel.classList.contains('detail-view-visible')) return;
+
+        const { clientX, clientY } = e;
+        const { innerWidth, innerHeight } = window;
+
+        // Calculate rotation (-1 to 1)
+        const x = (clientX / innerWidth - 0.5) * 2;
+        const y = (clientY / innerHeight - 0.5) * 2;
+
+        // Apply tilt
+        detailContent.style.transform = `rotateY(${x * 3}deg) rotateX(${-y * 3}deg)`;
+    });
+
+    detailPanel.addEventListener('mouseleave', () => {
+        detailContent.style.transform = 'rotateY(0) rotateX(0)';
+    });
 });
 
 
@@ -284,8 +306,8 @@ function selectMonastery(index) {
 
     // Rich Content Injection
     detailContent.innerHTML = `
-        <h2 id="panel-title">${monastery.name}</h2>
-        <div class="monastery-meta-grid">
+        <h2 id="panel-title" class="panel-element delay-1">${monastery.name}</h2>
+        <div class="monastery-meta-grid panel-element delay-2">
             <div class="meta-item">
                 <span class="meta-label">Altitude</span>
                 <span class="meta-value">${monastery.altitude}</span>
@@ -304,11 +326,11 @@ function selectMonastery(index) {
             </div>
         </div>
 
-        <div class="monastery-description">
+        <div class="monastery-description panel-element delay-3">
             <p>${monastery.description}</p>
         </div>
 
-        <div class="monastery-festivals">
+        <div class="monastery-festivals panel-element delay-4">
             <h3>Major Festivals</h3>
             <p>${monastery.festivals}</p>
         </div>
@@ -338,9 +360,13 @@ function selectMonastery(index) {
 function closeDetailPanel() {
     const mainContainer = document.getElementById('main-container');
     const detailPanel = document.getElementById('detail-panel');
+    const detailContent = document.getElementById('detail-content');
 
     mainContainer.classList.remove('detail-view-active');
     detailPanel.classList.remove('detail-view-visible');
+
+    // Reset tilt
+    detailContent.style.transform = '';
 
     deactivateCurrent();
 
