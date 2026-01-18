@@ -238,11 +238,67 @@ header p {
     line-height: 1.2;
 }
 
-#panel-description {
+/* Enriched Content Styles */
+
+.monastery-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.meta-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.monastery-description {
+    margin-bottom: 25px;
+}
+
+.monastery-description p {
     font-size: 1.1rem;
     line-height: 1.7;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.monastery-festivals {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 20px;
+}
+
+.monastery-festivals h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #FFAB91; /* Lighter accent for legibility on dark */
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.monastery-festivals p {
+    font-size: 1rem;
+    color: white;
 }
 
 /* Custom Leaflet Marker */
