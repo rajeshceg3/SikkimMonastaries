@@ -238,9 +238,28 @@ header p {
     text-shadow: 0 1px 5px rgba(0,0,0,0.2);
     box-shadow: 0 15px 35px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.1);
 
+    /* Scrollable content */
+    max-height: 85vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+
     /* 3D Context */
     transform-style: preserve-3d;
     will-change: transform;
+}
+
+#detail-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+#detail-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#detail-content::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
 }
 
 #panel-title {
@@ -356,6 +375,111 @@ header p {
 .monastery-festivals p {
     font-size: 1rem;
     color: white;
+}
+
+/* Highlights Section */
+.monastery-highlights {
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 25px;
+}
+
+.monastery-highlights h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #FFAB91;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.monastery-highlights ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.monastery-highlights li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.5;
+}
+
+.monastery-highlights li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+}
+
+/* Travel Tips Section */
+.monastery-travel-tips {
+    margin-top: 25px;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.monastery-travel-tips h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.monastery-travel-tips h3::before {
+    content: 'ⓘ';
+    display: inline-block;
+    margin-right: 8px;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.monastery-travel-tips p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* Actions Section */
+.monastery-actions {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.5px;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-color-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 87, 34, 0.5);
+}
+
+.cta-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(255, 87, 34, 0.3);
 }
 
 /* Custom Leaflet Marker */
