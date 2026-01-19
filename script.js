@@ -10,10 +10,18 @@ const monasteries = [
         image: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Rumtek_Monastery_2010.jpg",
         altitude: "1,500 m (4,900 ft)",
         established: "1966 (Rebuilt)",
-        festivals: "Tse-Chu (June), Losar",
+        festivals: "Tse-Chu (June), Losar (Feb)",
         visitingHours: "6:00 AM - 6:00 PM",
         bestTime: "Mar - Jun, Sep - Dec",
-        description: "The largest and most significant monastery in Sikkim, serving as the main seat of the Karma Kagyu lineage in exile. Founded by the 16th Karmapa, it features traditional Tibetan architecture, a golden stupa, and the Karma Shri Nalanda Institute."
+        description: "Rumtek, also known as the Dharma Chakra Centre, is the largest and most significant monastery in Sikkim. It serves as the main seat of the Karma Kagyu lineage in exile and was rebuilt by the 16th Karmapa in the 1960s. The monastery is a faithful replica of the Tsurphu Monastery in Tibet. It houses some of the world's most unique religious scriptures and rare religious art objects, including the Golden Stupa which contains the precious relics of the 16th Karmapa. The complex is a vibrant center of learning, housing the Karma Shri Nalanda Institute.",
+        highlights: [
+            "The Golden Stupa of the 16th Karmapa",
+            "Karma Shri Nalanda Institute for Higher Buddhist Studies",
+            "Annual Tse-Chu Chaam (Mask Dances)",
+            "Stunning traditional Tibetan architecture and murals"
+        ],
+        travelTips: "Foreign nationals must carry their passport and Inner Line Permit (ILP). It is a steep walk from the gate to the main monastery; comfortable shoes are recommended. Photography inside the main prayer hall is generally restricted.",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.2856,88.5714"
     },
     {
         name: "Pemayangtse Monastery",
@@ -25,7 +33,15 @@ const monasteries = [
         festivals: "Cham Dance (Feb/Mar)",
         visitingHours: "9:00 AM - 5:00 PM",
         bestTime: "Mar - Jun",
-        description: "One of Sikkim's oldest and most premier monasteries, belonging to the Nyingma order. It houses the magnificent wooden sculpture of 'Sangtokpalri' (the celestial abode of Guru Rinpoche) and offers commanding views of Mt. Kanchenjunga."
+        description: "Pemayangtse, meaning 'Perfect Sublime Lotus', is one of Sikkim's oldest and most premier monasteries. It was designed and founded by Lama Lhatsun Chempo and belongs to the Nyingma order. The monastery is famous for its magnificent seven-tiered wooden sculpture of 'Sangtokpalri', depicting the celestial abode of Guru Rinpoche, which took five years to craft single-handedly by the late Dungzin Rinpoche. It stands at a prime location offering commanding views of Mt. Kanchenjunga.",
+        highlights: [
+            "The seven-tiered Sangtokpalri wooden sculpture",
+            "Ancient manuscripts and antique idols",
+            "Commanding views of Mt. Kanchenjunga",
+            "Beautifully landscaped gardens"
+        ],
+        travelTips: "Located near Pelling, it is easily accessible by road. The best time to visit is during the morning for a clear view of the mountains. Dress modestly as it is a highly revered site.",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.3006,88.2531"
     },
     {
         name: "Tashiding Monastery",
@@ -37,7 +53,15 @@ const monasteries = [
         festivals: "Bumchu (Feb/Mar)",
         visitingHours: "7:00 AM - 5:00 PM",
         bestTime: "Mar - Jun",
-        description: "Considered the holiest monastery in Sikkim, perched on a heart-shaped hill between the Rathong Chu and Rangeet rivers. Legend says that a mere glimpse of its sacred Thongwa Rangdol chorten washes away all sins."
+        description: "Considered the holiest monastery in Sikkim, Tashiding is perched on a heart-shaped hill between the Rathong Chu and Rangeet rivers. It is believed that the site was consecrated by Guru Rinpoche himself. The monastery is the center of the 'Bumchu' festival, where a sacred pot of water is opened annually to predict the year's fortune. Legend says that a mere glimpse of its sacred Thongwa Rangdol chorten washes away all sins.",
+        highlights: [
+            "The sacred Thongwa Rangdol Chorten",
+            "The holy Bumchu ceremony",
+            "Stone plates with holy mantras (Mani walls)",
+            "Serene and isolated hilltop location"
+        ],
+        travelTips: "Reaching the monastery requires a steep uphill walk of about 20-30 minutes from the parking area. The atmosphere is deeply spiritual and quiet; visitors are expected to maintain silence.",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.2731,88.2917"
     },
     {
         name: "Enchey Monastery",
@@ -49,7 +73,15 @@ const monasteries = [
         festivals: "Detor Cham (Jan/Feb)",
         visitingHours: "6:00 AM - 6:00 PM",
         bestTime: "Mar - Jun, Sep - Oct",
-        description: "Perched on a ridge above Gangtok, this 200-year-old monastery is believed to be protected by the spirits of the Kanchenjunga. It is a vital seat of the Nyingma order and is famous for its masked dances."
+        description: "Perched on a ridge above Gangtok, Enchey Monastery means 'Solitary Temple'. It was built on a site blessed by Lama Druptob Karpo, a tantric master known for his ability to fly. The monastery is a vital seat of the Nyingma order and is famous for its vibrant 'Chaam' or masked dances performed during the Detor festival. Its location offers a stunning view of Gangtok town and the Kanchenjunga range.",
+        highlights: [
+            "Site blessed by the 'Flying Monk' Druptob Karpo",
+            "Spectacular Mask Dances (Chaam)",
+            "Pagoda-style architecture",
+            "Panoramic views of Gangtok"
+        ],
+        travelTips: "Located just 3 km from Gangtok town center, it is easily accessible by taxi. It is a perfect spot for a morning or evening walk. The path is lined with prayer wheels.",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.3392,88.6183"
     },
     {
         name: "Phodong Monastery",
@@ -61,7 +93,15 @@ const monasteries = [
         festivals: "Phodong Tsechu (Dec)",
         visitingHours: "8:00 AM - 5:00 PM",
         bestTime: "Mar - May, Oct - Dec",
-        description: "One of the six major monasteries in Sikkim, known for its exquisite murals and preserved architectural beauty. Standing at a scenic vantage point, it offers a glimpse into the rich history of the Karma Kagyu lineage."
+        description: "One of the six major monasteries in Sikkim, Phodong is known for its exquisite ancient murals and preserved architectural beauty. It belongs to the Karma Kagyu sect and was founded by the 9th Karmapa. Standing at a scenic vantage point in North Sikkim, it offers a glimpse into the rich history of the lineage. The monastery is less commercialized, offering a peaceful experience.",
+        highlights: [
+            "Exquisite ancient murals and frescoes",
+            "Rich collection of artifacts",
+            "Scenic location in North Sikkim",
+            "Peaceful and less crowded atmosphere"
+        ],
+        travelTips: "It is located about 38 km from Gangtok. The road offers beautiful views but can be rough. Combine this visit with the nearby Labrang Monastery.",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.4556,88.5908"
     },
     {
         name: "Dubdi Monastery",
@@ -73,7 +113,15 @@ const monasteries = [
         festivals: "Losar (Feb)",
         visitingHours: "7:00 AM - 4:00 PM",
         bestTime: "Mar - May",
-        description: "Known as the 'Hermit's Cell', this is the oldest monastery in Sikkim, established by the Chogyal Namgyal. Accessible via a beautiful trek through dense cardamom forests, it stands as a testament to the state's spiritual origins."
+        description: "Known as the 'Hermit's Cell', Dubdi is the oldest monastery in Sikkim, established by the Chogyal Namgyal. It played a crucial role in the consecration of the first King of Sikkim at Yuksom. Accessible via a beautiful trek through dense cardamom forests and chestnut groves, it stands as a testament to the state's spiritual origins. The stone two-story structure houses statues of the three lamas who consecrated the first king.",
+        highlights: [
+            "The oldest monastery in Sikkim (1701)",
+            "Statues of the three founding Lamas",
+            "Historical significance to the Chogyal dynasty",
+            "Scenic trek through cardamom forests"
+        ],
+        travelTips: "Requires a 45-minute to 1-hour uphill hike from Yuksom. The trail is well-marked but can be slippery during rains. Great for birdwatching enthusiasts.",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.3833,88.2208"
     },
     {
         name: "Sanga Chelling Monastery",
@@ -85,7 +133,15 @@ const monasteries = [
         festivals: "Khechuperra (Dec)",
         visitingHours: "8:00 AM - 5:00 PM",
         bestTime: "Mar - Jun",
-        description: "Meaning 'The Island of Esoteric Teaching', this is the second-oldest monastery in Sikkim. Located on a ridge opposite Pemayangtse, it houses ancient clay statues and offers one of the best sunrise views in Pelling."
+        description: "Meaning 'The Island of Esoteric Teaching', Sanga Chelling is the second-oldest monastery in Sikkim. Located on a ridge opposite Pemayangtse, it houses ancient clay statues and offers one of the best sunrise views in Pelling. The monastery was built by Lama Lhatsun Chempo and is strictly for the Nyingma order. It was recently rebuilt after a fire but retains its original sacred aura.",
+        highlights: [
+            "Second oldest monastery in Sikkim",
+            "Rare clay statues and Vajra artifacts",
+            "Spectacular sunrise views over Pelling",
+            "Ancient cremation ground nearby"
+        ],
+        travelTips: "Accessible by a 45-minute moderate hike from Pelling. The path goes through a thick forest. Carry water and wear good walking shoes.",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.3083,88.2417"
     },
     {
         name: "Khecheopalri Monastery",
@@ -97,7 +153,15 @@ const monasteries = [
         festivals: "Maghe Purne (Jan)",
         visitingHours: "6:00 AM - 6:00 PM",
         bestTime: "Feb - Apr, Oct - Dec",
-        description: "A small but significant monastery located just above the sacred 'Wish-Fulfilling Lake'. It is a place of deep reverence where silence is cherished, and the lake is believed to be kept clean by birds picking up falling leaves."
+        description: "A small but significant monastery located just above the sacred 'Wish-Fulfilling Lake' (Khecheopalri Lake). The lake is revered by both Buddhists and Hindus. It is a place of deep reverence where silence is cherished, and the lake is believed to be kept clean by birds picking up falling leaves. The monastery oversees the rituals performed at the lake.",
+        highlights: [
+            "Overlooks the sacred Wish-Fulfilling Lake",
+            "Sacred footprint of Goddess Tara",
+            "Legends of birds cleaning the lake",
+            "Deeply serene and mystical atmosphere"
+        ],
+        travelTips: "Shoes must be removed before walking on the boardwalk to the lake. Do not feed the fish in the lake as it is considered sacred. Silence is mandatory in the lake area.",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.3711,88.2017"
     },
     {
         name: "Dodrul Chorten",
@@ -109,7 +173,15 @@ const monasteries = [
         festivals: "Auspicious Days",
         visitingHours: "8:00 AM - 6:00 PM",
         bestTime: "All Year",
-        description: "A massive stupa in Gangtok marked by its golden top and 108 prayer wheels. Built to drive away evil spirits, it is a bustling center of faith where devotees circumambulate day and night."
+        description: "A massive stupa in Gangtok marked by its golden top and 108 prayer wheels. Built by Trulshik Rinpoche to drive away evil spirits that were believed to haunt the area, it is now a bustling center of faith where devotees circumambulate day and night. It houses a complete set of Dorjee Phurba (Vajra Kilaya) and other holy relics.",
+        highlights: [
+            "108 Mani Lhakor (Prayer Wheels)",
+            "Golden top stupa architecture",
+            "Statues of Guru Rinpoche",
+            "Always buzzing with devotees"
+        ],
+        travelTips: "Always circumambulate the stupa in a clockwise direction. It is located near the Namgyal Institute of Tibetology, so you can visit both in one trip.",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.3247,88.6139"
     },
     {
         name: "Phensang Monastery",
@@ -121,7 +193,15 @@ const monasteries = [
         festivals: "Kagyed Dance (Dec)",
         visitingHours: "8:00 AM - 5:00 PM",
         bestTime: "Oct - Dec, Mar - May",
-        description: "Situated on a gentle slope in North Sikkim, this monastery of the Nyingma order is famous for its large number of monks and scenic location. Despite fire damage in the past, it has been beautifully restored."
+        description: "Situated on a gentle slope in North Sikkim, Phensang Monastery of the Nyingma order is famous for its large number of monks and scenic location. It was founded by the 3rd Lhatsun Jigmed Pawo. Despite suffering severe fire damage in 1947 and again in 1983, it has been beautifully restored, preserving its structural integrity and spiritual importance.",
+        highlights: [
+            "Beautifully restored traditional architecture",
+            "Large community of monks",
+            "Scenic location on the way to North Sikkim",
+            "Annual Kagyed Chaam dance"
+        ],
+        travelTips: "Located on the Gangtok-Chungthang highway. Best visited while traveling to or from North Sikkim. The road can be prone to landslides during monsoon.",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.4181,88.5795"
     },
     {
         name: "Namchi Monastery (Samdruptse)",
@@ -133,7 +213,15 @@ const monasteries = [
         festivals: "Guru Rinpoche B'day",
         visitingHours: "9:00 AM - 5:00 PM",
         bestTime: "Feb - May, Sep - Nov",
-        description: "Home to the towering statue of Guru Padmasambhava on the Samdruptse Hill ('Wish Fulfilling Hill'). It is a modern marvel of spirituality and engineering, overlooking the town of Namchi."
+        description: "Samdruptse, meaning 'Wish Fulfilling Hill', is home to the towering 135-foot statue of Guru Padmasambhava (Guru Rinpoche). It is the highest statue of Guru Rinpoche in the world. It is a modern marvel of spirituality and engineering, overlooking the town of Namchi. The complex includes a prayer hall within the statue's base and a beautiful garden.",
+        highlights: [
+            "135-foot tall statue of Guru Padmasambhava",
+            "Highest statue of Guru Rinpoche in the world",
+            "Panoramic views of Mt. Kanchenjunga",
+            "Ropeway access from Namchi town"
+        ],
+        travelTips: "You can take the ropeway from Namchi town for a scenic approach. The wind can be strong at the top, so carry a light jacket. Binoculars are recommended for the views.",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.1667,88.3667"
     },
     {
         name: "Lachen Monastery",
@@ -145,7 +233,15 @@ const monasteries = [
         festivals: "Losoong (Dec)",
         visitingHours: "7:00 AM - 5:00 PM",
         bestTime: "Apr - Jun, Oct",
-        description: "A serene monastery in the remote mountain village of Lachen, marking the gateway to the high Himalayas. It serves as a community center for the Lachenpas and offers a peaceful retreat with stunning alpine views."
+        description: "A serene monastery in the remote mountain village of Lachen, marking the gateway to the high Himalayas. It was originally a small hut built in 1806 and later expanded. It serves as a community center for the Lachenpas (local inhabitants) and offers a peaceful retreat with stunning alpine views. The monastery houses a statue of Guru Rinpoche and a casket containing the footprint of the first King of Sikkim.",
+        highlights: [
+            "Gateway to Gurudongmar Lake",
+            "Authentic alpine village atmosphere",
+            "Rare artifacts including a royal footprint",
+            "Stunning views of rhododendron forests"
+        ],
+        travelTips: "Lachen is a restricted area; an Inner Line Permit is mandatory. It is very cold, especially in the evenings, so heavy woolens are required. It's a stopover for Gurudongmar Lake.",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.7167,88.5500"
     },
     {
         name: "Lachung Monastery",
@@ -157,7 +253,15 @@ const monasteries = [
         festivals: "Mask Dance (Dec)",
         visitingHours: "8:00 AM - 5:00 PM",
         bestTime: "Apr - Jun",
-        description: "Nestled among apple orchards and towering peaks, this monastery is a gem of the Lachung Valley. It features vibrant murals and hosts traditional mask dances that bring the quiet valley to life."
+        description: "Nestled among apple orchards and towering peaks, Lachung Monastery is a gem of the Lachung Valley. It features vibrant murals and two heavy prayer wheels at the entrance. The monastery hosts traditional mask dances that bring the quiet valley to life. It is a symbol of the cultural heritage of the Lachungpas.",
+        highlights: [
+            "Located amidst apple orchards and snow peaks",
+            "Vibrant ancient murals",
+            "Gateway to Yumthang Valley",
+            "Traditional wood carving architecture"
+        ],
+        travelTips: "Like Lachen, a permit is required. It is usually visited on the way to Yumthang Valley. Try the local apples if you visit during harvest season (Aug-Sep).",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.6833,88.7333"
     },
     {
         name: "Tsuk-La-Khang Monastery",
@@ -169,7 +273,15 @@ const monasteries = [
         festivals: "Pang Lhabsol",
         visitingHours: "7:00 AM - 5:00 PM",
         bestTime: "All Year",
-        description: "The Royal Chapel of the Chogyals, located within the palace complex in Gangtok. Once the site of royal weddings and coronations, it is a repository of Buddhist scriptures and a masterpiece of traditional Sikkimese architecture."
+        description: "The Royal Chapel of the Chogyals, located within the palace complex in Gangtok. Once the site of royal weddings and coronations, it is a repository of Buddhist scriptures and a masterpiece of traditional Sikkimese architecture. The monastery is known for its intricate wood carvings and mural paintings depicting Buddhist legends. It is the center of the 'Pang Lhabsol' festival, worshipping Mt. Kanchenjunga.",
+        highlights: [
+            "The Royal Chapel of the former Kings",
+            "Venue for royal coronations and weddings",
+            "Intricate wood carvings and murals",
+            "Center of the Pang Lhabsol festival"
+        ],
+        travelTips: "It is located near the Ridge Park in Gangtok. Public entry is sometimes restricted as it is part of the palace grounds, but it is open during major festivals like Pang Lhabsol and Losar.",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.3308,88.6142"
     },
     {
         name: "Lingdum Monastery (Ranka)",
@@ -181,7 +293,15 @@ const monasteries = [
         festivals: "Losar (Feb)",
         visitingHours: "8:00 AM - 6:00 PM",
         bestTime: "All Year",
-        description: "A spectacular modern monastery near Gangtok, known for its vast courtyard, intricate artworks, and cinematic beauty. It follows the Zurmang Kagyu tradition and provides a perfect setting for meditation and photography."
+        description: "A spectacular modern monastery near Gangtok, Lingdum (also known as Ranka Monastery) is known for its vast courtyard, intricate artworks, and cinematic beauty. It follows the Zurmang Kagyu tradition. The monastery has been a shooting location for several Bollywood movies due to its stunning symmetry and vibrant colors. It provides a perfect setting for meditation and photography.",
+        highlights: [
+            "Stunning modern Tibetan architecture",
+            "Vast courtyard and symmetrical design",
+            "Popular filming location for movies",
+            "Friendly monks and serene environment"
+        ],
+        travelTips: "It is about 45 minutes drive from Gangtok. The road is scenic. There are souvenir shops and a restaurant nearby. It is very wheelchair friendly compared to older monasteries.",
+        directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=27.3167,88.5667"
     }
 ];
 
@@ -330,9 +450,25 @@ function selectMonastery(index) {
             <p>${monastery.description}</p>
         </div>
 
+        <div class="monastery-highlights panel-element delay-3">
+            <h3>Highlights</h3>
+            <ul>
+                ${monastery.highlights.map(highlight => `<li>${highlight}</li>`).join('')}
+            </ul>
+        </div>
+
         <div class="monastery-festivals panel-element delay-4">
             <h3>Major Festivals</h3>
             <p>${monastery.festivals}</p>
+        </div>
+
+        <div class="monastery-travel-tips panel-element delay-4">
+            <h3>Travel Tips</h3>
+            <p>${monastery.travelTips}</p>
+        </div>
+
+        <div class="monastery-actions panel-element delay-4">
+            <a href="${monastery.directionsUrl}" target="_blank" class="cta-button">Get Directions</a>
         </div>
     `;
 
