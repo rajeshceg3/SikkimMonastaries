@@ -312,6 +312,8 @@ const mapContext = {
     activeMarker: null, // This will store the active marker's HTML element
 };
 
+let previousActiveElement = null;
+
 // --- App Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Get DOM Elements
@@ -376,8 +378,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Close Panel Logic
     closePanelButton.addEventListener('click', closeDetailPanel);
 
-    // 6. Tactile 3D Tilt Effect
+    // Close when clicking outside the content (backdrop)
     const detailPanel = document.getElementById('detail-panel');
+    detailPanel.addEventListener('click', (e) => {
+        // If click originated from inside the content wrapper, do not close
+        if (e.target.closest('#detail-content-wrapper')) return;
+
+        closeDetailPanel();
+    });
+
+    // Global keyboard listener for Accessibility (Escape to close, Tab to trap focus)
+    document.addEventListener('keydown', handleModalKeydown);
+
+    // 6. Tactile 3D Tilt Effect
     const detailContent = document.getElementById('detail-content');
 
     detailPanel.addEventListener('mousemove', (e) => {
@@ -411,6 +424,9 @@ function selectMonastery(index) {
     if (markerElement.classList.contains('active')) {
         return;
     }
+
+    // Capture currently focused element
+    previousActiveElement = document.activeElement;
 
     // Get panel elements
     const mainContainer = document.getElementById('main-container');
@@ -490,13 +506,18 @@ function selectMonastery(index) {
     // --- Add a one-time event listener to the map to close the panel ---
     setTimeout(() => {
         mapContext.map.once('click', closeDetailPanel);
-    }, 100);
+        // Move focus to close button for accessibility
+        const closeBtn = document.getElementById('close-panel');
+        if (closeBtn) closeBtn.focus();
+    }, 650); // Wait for transition to complete
 }
 
 function closeDetailPanel() {
     const mainContainer = document.getElementById('main-container');
     const detailPanel = document.getElementById('detail-panel');
     const detailContent = document.getElementById('detail-content');
+
+    if (!detailPanel.classList.contains('detail-view-visible')) return;
 
     mainContainer.classList.remove('detail-view-active');
     detailPanel.classList.remove('detail-view-visible');
@@ -506,8 +527,47 @@ function closeDetailPanel() {
 
     deactivateCurrent();
 
+    // Restore focus
+    if (previousActiveElement) {
+        previousActiveElement.focus();
+    }
+
     // Remove the map click listener if it exists
     mapContext.map.off('click', closeDetailPanel);
+}
+
+function handleModalKeydown(e) {
+    const detailPanel = document.getElementById('detail-panel');
+    if (!detailPanel.classList.contains('detail-view-visible')) return;
+
+    if (e.key === 'Escape') {
+        closeDetailPanel();
+    }
+
+    if (e.key === 'Tab') {
+        trapFocus(e, detailPanel);
+    }
+}
+
+function trapFocus(e, modal) {
+    const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+    let focusableElements = modal.querySelectorAll(focusableElementsString);
+    focusableElements = Array.prototype.slice.call(focusableElements);
+
+    const firstTabStop = focusableElements[0];
+    const lastTabStop = focusableElements[focusableElements.length - 1];
+
+    if (e.shiftKey) {
+        if (document.activeElement === firstTabStop) {
+            e.preventDefault();
+            lastTabStop.focus();
+        }
+    } else {
+        if (document.activeElement === lastTabStop) {
+            e.preventDefault();
+            firstTabStop.focus();
+        }
+    }
 }
 
 function deactivateCurrent() {
