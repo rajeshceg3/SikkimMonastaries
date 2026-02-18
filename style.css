@@ -523,6 +523,11 @@ header p {
     background-color: white;
 }
 
+#close-panel:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
 /* Media Queries for smaller screens */
 @media (max-width: 768px) {
     #list-panel {
@@ -561,5 +566,18 @@ header p {
         left: 50%;
         width: 90%;
         top: 10px;
+    }
+
+    #detail-content-wrapper {
+        width: 95%;
+    }
+
+    #detail-content {
+        padding: 20px;
+    }
+
+    #close-panel {
+        top: 15px;
+        right: 15px;
     }
 }
